@@ -6,5 +6,6 @@ class HomeController extends Controller{
         $this->view('home'); 
         $this->view('footer');
     }
+
 }
 ?>

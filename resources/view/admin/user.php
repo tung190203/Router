@@ -47,6 +47,7 @@
                   <th></th>
                 </tr>
               </thead>
+<!--               
               <tbody>
                 <?php
 
@@ -97,7 +98,8 @@
                 <?php
                 }
                 ?>
-              </tbody>
+              </tbody> -->
+
             </table>
 
             <!-- Form Modal -->

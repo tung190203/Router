@@ -1,8 +1,6 @@
 <?php
 namespace App\Controllers;
 use App\Models\Users;
-
-
 class UserController extends Controller{
     //page
     //load trang login
@@ -23,13 +21,16 @@ public function forgot(){
     $this->view('footer');
 }
 // thực hiện lấy dữ liệu 
-public function checkUser(){
-$Users = Users::getall();
-
-}
+// public function checkUser(){
+// $Users = Users::getall();
+// }
 //admin
 public function listUser(){
-    $Users = Users::getall();
-    return $this->view('admin/user',['Users'=>$Users]);
+    // $this->view('admin/header');
+    // $this->view('admin/user');
+    // $this->view('admin/footer');
+    
+    // return $this->view('admin/user',['Users'=>$User]);
 }
+
 }

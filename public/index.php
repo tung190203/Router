@@ -1,6 +1,7 @@
 <?php
 
 use App\Controllers\HomeController;
+use App\Controllers\ProductController;
 use App\Controllers\UserController;
 use App\Router;
 
@@ -9,11 +10,11 @@ $router= new Router;
 //user
 Router::get('/home', [HomeController::class, 'index']);
 Router::get('/login',[UserController::class,'loginpage']);
-Router::post('/login',[UserController::class,'checkUser']);
+// Router::post('/login',[UserController::class,'checkUser']);
 Router::get('/register',[UserController::class,'registers']);
 Router::get('/forgot',[UserController::class,'forgot']);
 Router::get('/user',[UserController::class,'listUser']);
 $router->resolve();
 //admin
-Router::get('');
+Router::get('/product-admin',[ProductController::class,'index']);
 ?>
