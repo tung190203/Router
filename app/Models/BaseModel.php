@@ -6,7 +6,7 @@ class BaseModel
 {
     protected $conn;
     protected $sql_builder;
-    public $tableName;
+    
     public function __construct()
     {
         try {
@@ -98,4 +98,5 @@ $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_CLASS);
         return $result;
     }
+
 }

@@ -83,10 +83,10 @@
 				</div>
 				<div class="card-footer">
 					<div class="d-flex justify-content-center links">
-						Have an account?<a href="index.php?act=login">Sign In</a>
+						Have an account?<a href="/login">Sign In</a>
 					</div>
 					<div class="d-flex justify-content-center">
-						<a href="index.php?act=forgot">Forgot your password?</a>
+						<a href="/forgot">Forgot your password?</a>
 					</div>
 				</div>
 			</div>

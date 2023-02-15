@@ -50,30 +50,28 @@
               <tbody>
                 <?php
 
-                foreach ($result as $value) {
-                  extract($value);
-
+                foreach ($Users as $value) {
                 ?>
                   <tr>
                     <td></td>
-                    <td><?= $User_id ?></td>
+                    <td><?= $value->User_id ?></td>
                     <td>
-                      <?= $Name ?>
+                      <?= $value->Name ?>
                     </td>
-                    <td class="d-none d-lg-table-cell"><?= $Email ?></td>
-                    <td class="d-none d-lg-table-cell"><?= $Address ?></td>
-                    <td class="d-none d-lg-table-cell"><?= $Phone ?></td>
+                    <td class="d-none d-lg-table-cell"><?= $value->Email ?></td>
+                    <td class="d-none d-lg-table-cell"><?= $value->Address ?></td>
+                    <td class="d-none d-lg-table-cell"><?= $value->Phone ?></td>
                     <td class="d-none d-lg-table-cell">
                       <?php
-                      if ($role == 1) {
-                        $role = "Admin";
+                      if ($value->role == 1) {
+                        $value->role = "Admin";
                       ?>
-                        <span class="badge badge-danger"><?= $role ?></span>
+                        <span class="badge badge-danger"><?= $value->role ?></span>
                       <?php
-                      } elseif ($role == 0) {
-                        $role = "User";
+                      } elseif ($value->role == 0) {
+                        $value->role = "User";
                       ?>
-                        <span class="badge badge-success"><?= $role ?></span>
+                        <span class="badge badge-success"><?= $value->role ?></span>
                       <?php
                       }
                       ?>
@@ -87,10 +85,10 @@
                         <a class="dropdown-toggle icon-burger-mini" href="" role="button" id="dropdown-recent-order1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static"></a>
                         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-recent-order1">
                           <li class="dropdown-item">
-                            <a href="index.php?act=updateus&User_id=<?php echo $User_id ?>">Update</a>
+                            <a href="index.php?act=updateus&User_id=<?= $value->User_id ?>">Update</a>
                           </li>
                           <li class="dropdown-item">
-                            <a href="index.php?act=deleteus&User_id=<?php echo $User_id ?>">Remove</a>
+                            <a href="index.php?act=deleteus&User_id=<?= $value->User_id ?>">Remove</a>
                           </li>
                         </ul>
                       </div>

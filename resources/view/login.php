@@ -44,7 +44,7 @@
 				</div>
 			</div>
 			<div class="card-body">
-				<form action = "index.php?act=login"  method="post">
+				<form action = "/login"  method="post">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -68,10 +68,10 @@
 			</div>
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
-					Don't have an account?<a href="index.php?act=register">Sign Up</a>
+					Don't have an account?<a href="/register">Sign Up</a>
 				</div>
 				<div class="d-flex justify-content-center">
-					<a href="index.php?act=forgot">Forgot your password?</a>
+					<a href="/forgot">Forgot your password?</a>
 				</div>
 			</div>
 		</div>

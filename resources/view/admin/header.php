@@ -21,23 +21,23 @@
   <link href="https://cdn.materialdesignicons.com/4.4.95/css/materialdesignicons.min.css" rel="stylesheet" />
 
   <!-- PLUGINS CSS STYLE -->
-  <link href="assets/plugins/simplebar/simplebar.css" rel="stylesheet" />
-  <link href="assets/plugins/nprogress/nprogress.css" rel="stylesheet" />
+  <link href="assets_admin/plugins/simplebar/simplebar.css" rel="stylesheet" />
+  <link href="assets_admin/plugins/nprogress/nprogress.css" rel="stylesheet" />
 
   <!-- No Extra plugin used -->
-  <link href="assets/plugins/jvectormap/jquery-jvectormap-2.0.3.css" rel="stylesheet" />
-  <link href="assets/plugins/daterangepicker/daterangepicker.css" rel="stylesheet" />
-  <link href="assets/plugins/data-tables/datatables.bootstrap4.min.css" rel="stylesheet" />
+  <link href="assets_admin/plugins/jvectormap/jquery-jvectormap-2.0.3.css" rel="stylesheet" />
+  <link href="assets_admin/plugins/daterangepicker/daterangepicker.css" rel="stylesheet" />
+  <link href="assets_admin/plugins/data-tables/datatables.bootstrap4.min.css" rel="stylesheet" />
 
-<link href="assets/plugins/data-tables/jquery.datatables.min.css" rel="stylesheet" />
-  <link href="assets/plugins/toastr/toastr.min.css" rel="stylesheet" />
+<link href="assets_admin/plugins/data-tables/jquery.datatables.min.css" rel="stylesheet" />
+  <link href="assets_admin/plugins/toastr/toastr.min.css" rel="stylesheet" />
 
   <!-- SLEEK CSS -->
-  <link id="sleek-css" rel="stylesheet" href="assets/css/sleek.css" />
+  <link id="sleek-css" rel="stylesheet" href="assets_admin/css/sleek.css" />
 
   <!-- FAVICON -->
-  <link href="assets/img/favicon.png" rel="shortcut icon" />
-  <script src="assets/plugins/nprogress/nprogress.js"></script>
+  <link href="assets_admin/img/favicon.png" rel="shortcut icon" />
+  <script src="assets_admin/plugins/nprogress/nprogress.js"></script>
 </head>
 
 <body class="header-fixed sidebar-fixed sidebar-dark header-light" id="body">
@@ -201,13 +201,13 @@
               <!-- User Account -->
               <li class="dropdown user-menu">
                 <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                  <img src="assets/img/user/user.png" class="user-image" alt="User Image" />
+                  <img src="assets_admin/img/user/user.png" class="user-image" alt="User Image" />
                   <span class="d-none d-lg-inline-block">Nguyễn Thanh Tùng</span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <!-- User image -->
                   <li class="dropdown-header">
-                    <img src="assets/img/user/user.png" class="img-circle" alt="User Image" />
+                    <img src="assets_admin/img/user/user.png" class="img-circle" alt="User Image" />
                     <div class="d-inline-block">
                       Nguyễn Thanh Tùng
                       <small class="pt-1">Tungntph19820@fpt.edu.vn</small>
