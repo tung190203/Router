@@ -6,7 +6,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb p-0">
                     <li class="breadcrumb-item">
-                        <a href="index.php">
+                        <a href="/home-admin">
                             <span class="mdi mdi-home"></span>
                         </a>
                     </li>
@@ -41,18 +41,18 @@
                             <tbody>
                             <?php
                             
-                                    foreach($result as $value){
-                                        extract($value);
+                                    foreach($categories as $value){
+                                        
                 
                                     ?>
                                 <tr>
                                    <td></td>
-                                    <td><?=  $Cate_id ?></td>
+                                    <td><?=  $value->Cate_id ?></td>
                                     <td>
-                                        <?=  $Cate_name ?>
+                                        <?=  $value->Cate_name ?>
                                     </td>
-                                    <td class="d-none d-lg-table-cell"><?= $Description?></td>
-                                    <td class="d-none d-lg-table-cell"><?= $Cproduct ?></td>                                    
+                                    <td class="d-none d-lg-table-cell"><?= $value->Description?></td>
+                                    <td class="d-none d-lg-table-cell"></td>                                    
                                     <td class="text-right">
                                         <div class="dropdown show d-inline-block widget-dropdown">
                                             <a class="dropdown-toggle icon-burger-mini" href="" role="button"
@@ -61,10 +61,10 @@
                                             <ul class="dropdown-menu dropdown-menu-right"
                                                 aria-labelledby="dropdown-recent-order1">
                                                 <li class="dropdown-item">
-                                                    <a href="index.php?act=updatepr&User_id=<?php echo $Cate_id?>">Update</a>
+                                                    <a href="/updatepr&User_id=<?php echo $value->Cate_id?>">Update</a>
                                                 </li>
                                                 <li class="dropdown-item">
-                                                    <a href="index.php?act=deletepr&User_id=<?php echo $Cate_id ?>">Remove</a>
+                                                    <a href="/deletepr&User_id=<?php echo $value->Cate_id ?>">Remove</a>
                                                 </li>
                                             </ul>
                                         </div>

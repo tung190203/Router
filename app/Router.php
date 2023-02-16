@@ -39,7 +39,8 @@ class Router
         $callback = static::$routes[$method][$path] ?? false;
 
         if ($callback === false) {
-            echo "404 FILE NOT FOUND";
+            // echo "404 FILE NOT FOUND";
+          require_once '../public/404.php';
             exit;
         }
         //Nếu $callback là 1 function

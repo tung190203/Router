@@ -45,7 +45,7 @@
     <aside class="left-sidebar bg-sidebar">
       <div id="sidebar" class="sidebar sidebar-with-footer">
         <div class="app-brand">
-          <a href="index.php" title="Sleek Dashboard">
+          <a href="/home-admin" title="Sleek Dashboard">
             <svg class="brand-icon" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="30"
               height="33" viewBox="0 0 30 33">
               <g fill="none" fill-rule="evenodd">
@@ -73,14 +73,14 @@
               <ul class="collapse show" id="dashboard" data-parent="#sidebar-menu">
               <div class="sub-menu">
                   <li class="active">
-                    <a class="sidenav-item-link" href="../../index.php">
+                    <a class="sidenav-item-link" href="/home">
                       <span class="nav-text">Home</span>
                     </a>
                   </li>
                 </div>
                 <div class="sub-menu">
                   <li class="active">
-                    <a class="sidenav-item-link" href="index.php">
+                    <a class="sidenav-item-link" href="/home-admin">
                       <span class="nav-text">Statistic</span>
                     </a>
                   </li>
@@ -98,35 +98,18 @@
               <ul class="collapse" id="components" data-parent="#sidebar-menu">
                 <div class="sub-menu">
                   <li class="">
-                    <a class="sidenav-item-link" href="index.php?act=product">
+                    <a class="sidenav-item-link" href="/product-admin">
                       <span class="nav-text">Products</span>
                     </a>
                   </li>
                   <li class="">
-                    <a class="sidenav-item-link" href="index.php?act=categories">
+                    <a class="sidenav-item-link" href="/categories-admin">
                       <span class="nav-text">Categories</span>
                     </a>
                   </li>
                   <li class="">
-                    <a class="sidenav-item-link" href="index.php?act=user">
+                    <a class="sidenav-item-link" href="/user-admin">
                       <span class="nav-text">User</span>
-                    </a>
-                  </li>
-                </div>
-              </ul>
-            </li>
-            <li class="has-sub">
-              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#icons"
-                aria-expanded="false" aria-controls="icons">
-                <i class="mdi mdi-diamond-stone"></i>
-                <span class="nav-text">Icons</span> <b class="caret"></b>
-              </a>
-
-              <ul class="collapse" id="icons" data-parent="#sidebar-menu">
-                <div class="sub-menu">
-                  <li class="">
-                    <a class="sidenav-item-link" href="material-icon.php">
-                      <span class="nav-text">Material Icon</span>
                     </a>
                   </li>
                 </div>
@@ -142,14 +125,14 @@
               <ul class="collapse" id="tables" data-parent="#sidebar-menu">
                 <div class="sub-menu">
                   <li class="">
-                    <a class="sidenav-item-link" href="expendable-data-table.php">
-                      <span class="nav-text">Expendable Data Table</span>
+                    <a class="sidenav-item-link" href="/table-admin">
+                      <span class="nav-text">Table</span>
                     </a>
                   </li>
                 </div>
               </ul>
             </li>
-            <li class="has-sub">
+            <!-- <li class="has-sub">
               <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#pages"
                 aria-expanded="false" aria-controls="pages">
                 <i class="mdi mdi-settings"></i>
@@ -165,7 +148,7 @@
                   </li>
                 </div>
               </ul>
-            </li>
+            </li> -->
           </ul>
         </div>
         <div class="sidebar-footer">
@@ -214,7 +197,7 @@
                     </div>
                   </li>
                   <li>
-                    <a href="user-profile.php">
+                    <a href="/user-profile">
                       <i class="mdi mdi-account"></i> My Profile
                     </a>
                   </li>

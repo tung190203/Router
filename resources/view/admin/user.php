@@ -6,7 +6,7 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb p-0">
           <li class="breadcrumb-item">
-            <a href="index.php">
+            <a href="/home-admin">
               <span class="mdi mdi-home"></span>
             </a>
           </li>
@@ -30,77 +30,51 @@
 
           <div class="card-body pt-0 pb-5">
             <table class="table card-table table-responsive table-responsive-large table-striped " style="width: 100%">
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>User ID</th>
-                  <th>Name</th>
-                  <th>Email </th>
-                  <th>Address</th>
-                  <th>
-                    Phone
-                  </th>
-                  <th>
-                    Role
-                  </th>
-
-                  <th></th>
-                </tr>
-              </thead>
-<!--               
-              <tbody>
-                <?php
-
-                foreach ($Users as $value) {
-                ?>
-                  <tr>
-                    <td></td>
-                    <td><?= $value->User_id ?></td>
-                    <td>
-                      <?= $value->Name ?>
-                    </td>
-                    <td class="d-none d-lg-table-cell"><?= $value->Email ?></td>
-                    <td class="d-none d-lg-table-cell"><?= $value->Address ?></td>
-                    <td class="d-none d-lg-table-cell"><?= $value->Phone ?></td>
-                    <td class="d-none d-lg-table-cell">
-                      <?php
-                      if ($value->role == 1) {
-                        $value->role = "Admin";
-                      ?>
-                        <span class="badge badge-danger"><?= $value->role ?></span>
-                      <?php
-                      } elseif ($value->role == 0) {
-                        $value->role = "User";
-                      ?>
-                        <span class="badge badge-success"><?= $value->role ?></span>
-                      <?php
-                      }
-                      ?>
-                    </td>
-                    <td class="d-none d-lg-table-cell">
-
-                    </td>
-
-                    <td class="text-right">
-                      <div class="dropdown show d-inline-block widget-dropdown">
-                        <a class="dropdown-toggle icon-burger-mini" href="" role="button" id="dropdown-recent-order1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static"></a>
-                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-recent-order1">
-                          <li class="dropdown-item">
-                            <a href="index.php?act=updateus&User_id=<?= $value->User_id ?>">Update</a>
-                          </li>
-                          <li class="dropdown-item">
-                            <a href="index.php?act=deleteus&User_id=<?= $value->User_id ?>">Remove</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                <?php
-                }
-                ?>
-              </tbody> -->
-
-            </table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>User ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Role</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach ($User as $value) { ?>
+      <tr>
+        <td></td>
+        <td><?php echo $value->value_id; ?></td>
+        <td><?php echo $value->name; ?></td>
+        <td class="d-none d-lg-table-cell"><?php echo $value->email; ?></td>
+        <td class="d-none d-lg-table-cell"><?php echo $value->address; ?></td>
+        <td class="d-none d-lg-table-cell"><?php echo $value->phone; ?></td>
+        <td class="d-none d-lg-table-cell">
+          <?php if ($value->role == 'admin') { ?>
+            <span class="badge badge-danger"><?php echo $value->role; ?></span>
+          <?php } else { ?>
+            <span class="badge badge-success"><?php echo $value->role; ?></span>
+          <?php } ?>
+        </td>
+        <td class="text-right">
+          <div class="dropdown show d-inline-block widget-dropdown">
+            <a class="dropdown-toggle icon-burger-mini" href="" role="button" id="dropdown-recent-order1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static"></a>
+            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-recent-order1">
+              <li class="dropdown-item">
+                <a href="index.php?act=updateus&User_id=<?php echo $value->user_id; ?>">Update</a>
+              </li>
+              <li class="dropdown-item">
+                <a href="index.php?act=deleteus&User_id=<?php echo $value->user_id; ?>">Remove</a>
+              </li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    <?php } ?>
+  </tbody>
+</table>
 
             <!-- Form Modal -->
             <div class="modal fade" id="exampleModalForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalFormTitle" aria-hidden="true">

@@ -49,7 +49,7 @@ class BaseModel
     public static function getOne($id)
     {
         $model = new static;
-        $model->sql_builder = "SELECT * FROM $model->tableName WHERE id='" . $id;
+        $model->sql_builder = "SELECT * FROM $model->tableName WHERE id='" . $id . "'";
         $stmt = $model->conn->prepare($model->sql_builder);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_CLASS, get_class($model));
@@ -97,6 +97,12 @@ $stmt->execute();
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_CLASS);
         return $result;
+    }
+    public function check($colName,$condition,$value){
+        $this->sql_builder  ="SELECT * FROM $this->tableName WHERE `$colName` $condition'$value' ";
+        $this->sql_builder .= " AND `$colName` $condition'$value'";
+        $stmt = $this->conn->prepare($this->sql_builder);
+        $stmt->execute();
     }
 
 }

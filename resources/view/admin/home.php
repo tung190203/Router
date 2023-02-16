@@ -16,7 +16,7 @@
           <div class="card-body py-0">
             <div class="media d-flex mb-5">
               <div class="media-image align-self-center mr-3 rounded">
-                <a href="#"><img src="assets/img/products/p1.jpg" alt="customerimage" /></a>
+                <a href="#"><img src="./assets_admin/img/products/p1.jpg" alt="customerimage" /></a>
               </div>
               <div class="media-body align-self-center">
                 <a href="#">

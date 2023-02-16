@@ -10,7 +10,7 @@
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb p-0">
 					<li class="breadcrumb-item">
-						<a href="index.php">
+						<a href="/home-admin">
 							<span class="mdi mdi-home"></span>
 						</a>
 					</li>
@@ -49,11 +49,11 @@
 										<th>Operation</th>
 									</tr>
 								</thead>
-<!-- 
+ 
 								<tbody>
 									<?php
 										
-									foreach ($result as  $values) {
+									foreach ($products as  $values) {
 										extract($values);
 										if($Cate_id==1){
 											$Cate_id = "Food";
@@ -79,7 +79,7 @@
 									?>
 
 								</tbody>
-								 -->
+								 
 							</table>
 							<div class="modal fade" id="exampleModalForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalFormTitle" aria-hidden="true">
               <div class="modal-dialog" role="document">

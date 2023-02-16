@@ -6,6 +6,11 @@ class HomeController extends Controller{
         $this->view('home'); 
         $this->view('footer');
     }
+    public function home_admin(){
+        $this->view('admin/header');
+        $this->view('admin/home');
+        $this->view('admin/footer');
+    }
 
 }
 ?>
