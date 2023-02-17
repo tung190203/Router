@@ -20,7 +20,7 @@ class Router
     public function getPath()
     {
         $path = $_SERVER['REQUEST_URI'] ?? '/';
-        $path = str_replace("Assignment/public/", '/', $path);
+        $path = str_replace("/Assigment/public/", '/', $path);
         $position = strpos($path, '?');
         if ($position) {
             $path = substr($path, 0, $position);

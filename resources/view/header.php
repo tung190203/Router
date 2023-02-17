@@ -61,8 +61,8 @@
                                     <?php
                                      }else{
                                     ?>
-                                    <li><a href="/login">Login</a></li>
-                                    <li><a href="/register">Register</a></li>
+                                    <li><a href="<?=ROOT_PATH?>login">Login</a></li>
+                                    <li><a href="<?=ROOT_PATH?>register">Register</a></li>
                                     <?php
                                      }
                                     ?>

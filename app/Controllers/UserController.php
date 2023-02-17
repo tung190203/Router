@@ -1,9 +1,9 @@
 <?php
 namespace App\Controllers;
 
+use App\Models\Products;
 use App\Models\User;
 use App\Request;
-
 class UserController extends Controller{
     //page
     //load trang login
@@ -23,19 +23,31 @@ public function forgot(){
    $this->view('forgot_pass');
     $this->view('footer');
 }
-//check user và pass có trong db không nếu có thì tiến hành login (Kiểm tra role if==1 admin else user)
-// public function checkUser(Request $request){
-//     // $User =User::getall();
-//     $name  =$request->getBody()['username'];
-//     $pass  =$request->getBody()['password'];
-//     $User  = User::getall();
-    
-// }
 //admin
 public function listUser(){
     $this->view('admin/header');
-    $this->view('admin/user');
-    $this->view('admin/footer');
+$user = User::all();
+return $this->view('admin/user',['user'=>$user]);
+}
+//update
+public function updateUser(Request $request){
+    $this->view('admin/header');
+   $id = $request->getBody()['User_id'];
+   $user = User::findOneUser($id);
+   return $this->view('admin/updateuser',['user'=>$user]);
+}
+public function userUpdate(Request $request) {
+    $data = $request->getBody();
+    $user = new User();
+    $user->updateUsers($data['User_id'], $data);
+    header('Location:'.ROOT_PATH.'user-admin');
+  }
+//delete
+public function deleteUser(Request $request){
+    $id = $request->getBody()['User_id'];
+    $user = new User();
+    $user->deleteUser($id);
+    header('Location:/Assigment/public/user-admin');
 }
 public function userProfile(){
     $this->view('admin/header');

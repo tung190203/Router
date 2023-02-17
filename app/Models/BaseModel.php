@@ -4,105 +4,142 @@ use PDO;
 use PDOException;
 class BaseModel
 {
-    protected $conn;
-    protected $sql_builder;
-    
-    public function __construct()
-    {
-        try {
-            $this->conn = new PDO("mysql:host=localhost;dbname=Klassy_cafe;charset=utf8", "root", "");
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-        }
+  protected $conn;
+  protected $sqlBuilder;
+  public function __construct()
+  {
+    try {
+      $this->conn = new PDO("mysql:host=localhost;dbname=Klassy_cafe;charset=utf8", "root", "",);
+      $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+      echo $e->getMessage();
     }
-    //lấy toàn bộ dữ liệu của 1 mảng với $model->tableName sẽ là bảng đc kế thừa bên Controller
-    public static function getall()
-    {
-        $model = new static;
-        $model->sql_builder = "SELECT * FROM $model->tableName";
-        $stmt = $model->conn->prepare($model->sql_builder);
-        $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_CLASS);
-        return $result;
-    }
-    public function insert($data = [])
-    {
-        $this->sql_builder = "INSERT INTO $this->tableName(";
-        $colName = '';
-        $params = '';
+  }
+  //static hoạt động từ lớp con
+  //self: chỉ hoạt động bên lớp cha
+  public static function all()
+  { //Lấy ra toàn bộ dữ liệu của bảng
+    $model = new static;
+    //thay thế cho this khi dùng fn static
+    $model->sqlBuilder = "SELECT * FROM $model->tableName";
+    $stmt = $model->conn->prepare($model->sqlBuilder);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_CLASS);
+    return $result;
+  }
 
-        foreach ($data as $key => $value) {
-            $colName .= "`$key`, ";
-            $params .= ":$key, ";
-        }
+  /**
+   * params: $data là 1 mảng dữ liệu có cấu trúc:
+   * $data=[name=>"Luân",age=>20,address=>"Nam Từ Liêm"];
+   * 
+   */
+  public function insert($data = [])
+  {
+    $this->sqlBuilder = "INSERT INTO $this->tableName(";
+    $colName = '';
+    $params = '';
 
-        //Xóa dấu ', ' ở bên phải chuỗi
-        $colName = rtrim($colName, ', ');
-        $params = rtrim($params, ', ');
-
-        //Nối vào chuỗi SQL
-        $this->sql_builder .= $colName . ") VALUES(" . $params . ")";
-
-        $stmt = $this->conn->prepare($this->sql_builder);
-        $stmt->execute($data);
-    }
-    public static function getOne($id)
-    {
-        $model = new static;
-        $model->sql_builder = "SELECT * FROM $model->tableName WHERE id='" . $id . "'";
-        $stmt = $model->conn->prepare($model->sql_builder);
-        $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_CLASS, get_class($model));
-        if ($result) {
-            return $result[0];
-        }
-        return false;
-
-    }
-    public function update ($id,$data=[]){
-        $this->sql_builder = "UPDATE $this->tableName SET";
-        foreach ($data as $colName => $value) {
-            $this->sql_builder .= "`$colName`=:$colName, ";
-        }
-        $this->sql_builder = rtrim($this->sql_builder, ", ");
-        $this->sql_builder .= " WHERE id=:id";
-
-        $data['id'] = $id;
-        $stmt = $this->conn->prepare($this->sql_builder);
-        $stmt->execute($data);
-    }
-    public function delete($id){
-$this->sql_builder  ="DELETE FROM $this->tableName WHERE id=".$id;
-$stmt = $this->conn->prepare($this->sql_builder);
-$stmt->execute();
-    }
-    public function where($colName, $condition, $value)
-    {
-        $this->sql_builder = "SELECT * FROM $this->tableName WHERE `$colName` $condition '$value' ";
-        return $this;
-    }
-    public function andWhere($colName, $condition, $value)
-    {
-        $this->sql_builder .= " AND `$colName` $condition '$value' ";
-        return $this;
-    }
-    public function orWhere($colName, $condition, $value)
-    {
-        $this->sql_builder .= " OR `$colName` $condition '$value' ";
-        return $this;
-    }
-    public function get()
-    {
-        $stmt = $this->conn->prepare($this->sql_builder);
-        $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_CLASS);
-        return $result;
-    }
-    public function check($colName,$condition,$value){
-        $this->sql_builder  ="SELECT * FROM $this->tableName WHERE `$colName` $condition'$value' ";
-        $this->sql_builder .= " AND `$colName` $condition'$value'";
-        $stmt = $this->conn->prepare($this->sql_builder);
-        $stmt->execute();
+    foreach ($data as $key => $value) {
+      $colName .= "`$key`, ";
+      $params .= ":$key, ";
     }
 
+    //xóa dấu ', ' ở cuối chuỗi
+    $colName = rtrim($colName, ', ');
+    $params = rtrim($params, ', ');
+
+    //Nối vào chuỗi SQL
+    $this->sqlBuilder .= $colName . ") VALUES(" . $params . ")";
+    echo $this->sqlBuilder;
+
+    //Thêm dữ liệu
+    $stmt = $this->conn->prepare($this->sqlBuilder);
+    $stmt->execute($data);
+  }
+
+  public static function findOne($id)
+  {
+    $model = new static;
+    $model->sqlBuilder = "SELECT * FROM $model->tableName WHERE id=".$id;
+    $stmt = $model->conn->prepare($model->sqlBuilder);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_CLASS, get_class($model));
+    if ($result) {
+      return $result[0];
+    }
+    return false;
+  }
+
+  public function update($id,$data = [])
+  {
+    $this->sqlBuilder = "UPDATE $this->tableName SET";
+    foreach ($data as $colName => $value) {
+      $this->sqlBuilder .= "`$colName`=:$colName, ";
+    }
+    $this->sqlBuilder = rtrim($this->sqlBuilder, ", ");
+    $this->sqlBuilder .= " WHERE id=:id";
+    $data['id'] = $id;
+    $stmt = $this->conn->prepare($this->sqlBuilder);
+
+    $stmt->execute($data);
+  }
+
+  public function delete($id)
+  {
+    $this->sqlBuilder = "DELETE FROM $this->tableName WHERE id=:id";
+    $stmt = $this->conn->prepare($this->sqlBuilder);
+    $stmt->execute(['id'=>$id]);
+  }
+
+  public function where($colName, $condition, $value)
+  {
+    $this->sqlBuilder = "SELECT * FROM $this->tableName WHERE `$colName` $condition '$value' ";
+    return $this;
+  }
+
+  public function andWhere($colName, $condition, $value)
+  {
+    $this->sqlBuilder .= " AND  `$colName` $condition '$value' ";
+    return $this;
+  }
+
+  public function orWhere($colName, $condition, $value)
+  {
+    $this->sqlBuilder .= " OR  `$colName` $condition '$value' ";
+    return $this;
+  }
+
+  public static function limit($colName, $num)
+  {
+    $model = new static;
+    //thay thế cho this khi dùng fn static
+    $model->sqlBuilder = "SELECT * FROM $model->tableName ORDER BY `$colName` DESC LIMIT $num";
+    $stmt = $model->conn->prepare($model->sqlBuilder);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_CLASS);
+    return $result;
+  }
+  public function get()
+  {
+    $stmt = $this->conn->prepare($this->sqlBuilder);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_CLASS);
+    return $result;
+  }
+  public static function checkUser($username, $password) {
+    $model = new static;
+    $model->sqlBuilder = "SELECT * FROM $model->tableName WHERE Name = :username AND Password = :password";
+    $stmt = $model->conn->prepare($model->sqlBuilder);
+    $stmt->bindParam(':username', $username);
+    $stmt->bindParam(':password', $password);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_CLASS, get_class($model));
+    if ($result) {
+      return $result[0];
+    }
+    return false;
+}
+
+
+  
 }

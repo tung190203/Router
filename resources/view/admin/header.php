@@ -73,14 +73,14 @@
               <ul class="collapse show" id="dashboard" data-parent="#sidebar-menu">
               <div class="sub-menu">
                   <li class="active">
-                    <a class="sidenav-item-link" href="/home">
+                    <a class="sidenav-item-link" href="<?= ROOT_PATH?>home">
                       <span class="nav-text">Home</span>
                     </a>
                   </li>
                 </div>
                 <div class="sub-menu">
                   <li class="active">
-                    <a class="sidenav-item-link" href="/home-admin">
+                    <a class="sidenav-item-link" href="<?= ROOT_PATH?>home-admin">
                       <span class="nav-text">Statistic</span>
                     </a>
                   </li>
@@ -98,17 +98,17 @@
               <ul class="collapse" id="components" data-parent="#sidebar-menu">
                 <div class="sub-menu">
                   <li class="">
-                    <a class="sidenav-item-link" href="/product-admin">
+                    <a class="sidenav-item-link" href="<?= ROOT_PATH?>product-admin">
                       <span class="nav-text">Products</span>
                     </a>
                   </li>
                   <li class="">
-                    <a class="sidenav-item-link" href="/categories-admin">
+                    <a class="sidenav-item-link" href="<?= ROOT_PATH?>categories-admin">
                       <span class="nav-text">Categories</span>
                     </a>
                   </li>
                   <li class="">
-                    <a class="sidenav-item-link" href="/user-admin">
+                    <a class="sidenav-item-link" href="<?= ROOT_PATH?>user-admin">
                       <span class="nav-text">User</span>
                     </a>
                   </li>
@@ -125,7 +125,7 @@
               <ul class="collapse" id="tables" data-parent="#sidebar-menu">
                 <div class="sub-menu">
                   <li class="">
-                    <a class="sidenav-item-link" href="/table-admin">
+                    <a class="sidenav-item-link" href="<?= ROOT_PATH?>table-admin">
                       <span class="nav-text">Table</span>
                     </a>
                   </li>

@@ -2,68 +2,65 @@
       <!-- ====================================
           ——— CONTENT WRAPPER
           ===================================== -->
-      <div class="content-wrapper">
+          <div class="content-wrapper">
         <div class="content">
           <div class="bg-white border rounded">
             <div class="row no-gutters">
-        
+
               <div class="col-lg-12 col-xl-12">
                 <div class="profile-content-right profile-right-spacing py-5">
                   <ul class="nav nav-tabs px-3 px-xl-5 nav-style-border" id="myTab" role="tablist">
                     <li class="nav-item">
                       <a class="nav-link active" id="settings-tab" data-toggle="tab" href="#settings" role="tab"
-                        aria-controls="settings" aria-selected="false">Update User</a>
+                        aria-controls="settings" aria-selected="false">Update Product</a>
                     </li>
                   </ul> 
                   
                   <div class=" px-3 px-xl-9" id="myTabContent">
                     <div class="tab-pane fade show active"  role="tabpanel" aria-labelledby="settings-tab">
                       <div class="tab-pane-content mt-5">
-                        <form  action="<?=ROOT_PATH?>update-user" method="post" >
-                        <input type="hidden" name="User_id" value="<?= $user->User_id ?>">
+                        <form  action="<?=ROOT_PATH?>update-product" method="post" >
+                        <input type="hidden" name="Pr_id" value="<?= $product->Pr_id ?>">
                           <div class="form-group mb-4">
-                            <label for="userName">User name</label>
-                            <input type="text" class="form-control"  value="<?= $user->Name?>" name="Name" />
+                            <label for="userName">Product Name</label>
+                            <input type="text" class="form-control"  value="<?= $product->Name_pr?>" name="Name_pr" />
                           </div>
 
                           <div class="form-group mb-4">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" value="<?= $user->Email?>" name="Email"/>
+                            <label for="email">Description</label>
+                            <input type="text" class="form-control" value="<?= $product->Description?>" name="Description"/>
                           </div>
                            <div class="form-group mb-4">
-                            <label for="userName">Address</label>
-                            <input type="text" class="form-control"  value="<?= $user->Address ?>" name="Address" />
+                            <label for="userName">Image</label>
+                            <input type="file" class="form-control" name="Image" />
                           </div>
 
-                           <div class="form-group mb-4">
-                            <label for="userName">Phone</label>
-                            <input type="text" class="form-control"  value="<?= $user->Phone ?>" name="Phone" />
-                          </div>
+                           
                           <div class="form-group mb-4">
-                            <label for="newPassword">New password</label>
-                            <input type="password" class="form-control" id="newPassword" name="Password" value="<?php  echo $user->Password?>"/>
-                          </div>
-                          <div class="form-group mb-4">
-                            <label for="newPassword">Role</label>
-                          <select name="role" id="" class="form-control">
+                            <label for="newPassword">Categories</label>
+                          <select name="Cate_id" id="" class="form-control">
                             <?php 
-                            if($user->role==0){
-                              $roles= "User";
-                              $rl = 1;
-                              $rs= "Admin";
+                            if($ct->Cate_id==1){
+                              $roles= "Food";
+                              $rl = 3;
+                              $rs= "Drinks";
                             }else{
-                              $roles="Admin";
-                              $rl = 0;
-                              $rs ="User";
+                              $roles="Drinks";
+                              $rl = 1;
+                              $rs ="Food";
                             }   
-                            if($rl==0){
-                              $user->role = 1;
-                              $roles ="Admin";
+                            if($rl==3){
+                              $ct->Cate_id = 1;
+                              $roles ="Food";
                             }
                             ?>
-                            <option value="<?= $user->role ?>"><?= $roles ?></option>
+                            <option value="<?= $ct->Cate_id ?>"><?= $roles ?></option>
                             <option value="<?= $rl ?>"><?= $rs ?></option>
                           </select>
+                          </div>
+                          <div class="form-group mb-4">
+                            <label for="userName">Price</label>
+                            <input type="text" class="form-control"  value="<?= $product->Price ?>" name="Price" />
                           </div>
                           <div class="d-flex justify-content-end mt-5">
                            
