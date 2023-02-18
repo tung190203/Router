@@ -52,7 +52,7 @@
 											<td class="details-control"></td>
 											<td><?= $values->Pr_id ?></td>
 											<td><?= $values->Name_pr ?></td>
-											<td><img src="/uploads/<?= $values->Image ?>" alt="" width="40px"></td>
+											<td><img src="uploads/<?= $values->Image ?>" alt="" width="40px"></td>
 											<td><?= $values->Description ?></td>
 											<td><?= $values->Price ?></td>
 											<td>
@@ -86,7 +86,7 @@
 												<div class="form-group">
 													<label for="exampleInputEmail1">Image</label>
 													<input type="file" class="form-control" id="exampleInputEmail1" "
-                        						 name="Image" />
+                        						 name="Image"/>
 												</div>
 												<div class="form-group">
 													<label for="exampleInputEmail1">Description</label>
@@ -163,10 +163,10 @@ require_once 'footer.php';
 				[0, "asc"]
 			],
 			aLengthMenu: [
-				[10, 20, 30, 50, 75, -1],
-				[10, 20, 30, 50, 75, "All"],
+				[5,10, 20, 30, 50, 75, -1],
+				[5,10, 20, 30, 50, 75, "All"],
 			],
-			pageLength: 10,
+			pageLength: 5,
 			dom: '<"row align-items-center justify-content-between top-information"lf>rt<"row align-items-center justify-content-between bottom-information"ip><"clear">',
 		});
 

@@ -28,7 +28,7 @@
 		}
 
 		.card {
-			height: 500px;
+			height: 540px;
 		}
 	</style>
 </head>
@@ -46,38 +46,46 @@
 					</div>
 				</div>
 				<div class="card-body">
-					<form action="index.php?act=register" method="post">
+					<form action="<?=ROOT_PATH?>register" method="post">
+					<div class="input-group form-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							<input type="text" class="form-control" placeholder="username" name="Name" required>
+
+						</div>
 						<div class="input-group form-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class=" fas fa-regular fa-envelope"></i></span>
 							</div>
-							<input type="email" class="form-control" placeholder="email" name="email" required>
+							<input type="email" class="form-control" placeholder="email" name="Email" required>
 
 						</div>
 						<div class="input-group form-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input type="text" class="form-control" placeholder="username" name="username" required>
+							<input type="text" class="form-control" placeholder="address" name="Address" required>
+
+						</div>
+						<div class="input-group form-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							<input type="text" class="form-control" placeholder="phone" name="Phone" required>
 
 						</div>
 						<div class="input-group form-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-lock"></i></span>
 							</div>
-							<input type="password" class="form-control" placeholder="password" name="password">
-						</div>
-						<div class="input-group form-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-key"></i></span>
-							</div>
-							<input type="password" class="form-control" placeholder="comfirm password" name="comfirm_password">
+							<input type="password" class="form-control" placeholder="password" name="Password">
 						</div>
 						<div class="row align-items-center remember">
 							<input type="checkbox">Remember Me
 						</div>
 						<div class="form-group">
-							<input type="submit" value="Register" name="register" class="btn float-right login_btn">
+							<input type="submit" value="Register"  class="btn float-right login_btn">
 						</div>
 					</form>
 				</div>
@@ -94,3 +102,6 @@
 	</div>
 </body>
 <!-- </html> -->
+<?php
+require_once 'footer.php';
+?>

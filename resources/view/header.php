@@ -53,11 +53,12 @@
 
                                 <ul>
                                     <?php
-                                     if (isset($_SESSION['username'])) {
+                                     if (isset($_SESSION['user'])) {
+                                
                                     ?>
-                                     <li><a href="index.php?act=update">Cập nhật tài khoản</a></li>
-                                    <li><a href="index.php?act=forgot">Quên mật khẩu</a></li>
-                                    <li><a href="index.php?act=logout">Thoát</a></li>
+                                     <li><a href="<?=ROOT_PATH?>update">Cập nhật tài khoản</a></li>
+                                    <li><a href="<?=ROOT_PATH?>forgot">Quên mật khẩu</a></li>
+                                    <li><a href="<?=ROOT_PATH?>logout">Thoát</a></li>
                                     <?php
                                      }else{
                                     ?>
@@ -70,9 +71,9 @@
                             </li>
                             <li><a>
                                     <?php
-                                    if (isset($_SESSION['username'])) {
+                                    if (isset($_SESSION['user'])) {
                                         ?>
-                                        <span>Hello</span>[<?php echo $_SESSION['username']['Name'] ?>]
+                                        <span>Hello</span>[<?php echo $_SESSION['user']['Name'] ?>]
                                     <?php
                                     } else {
 

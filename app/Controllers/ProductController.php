@@ -28,7 +28,6 @@ class ProductController extends Controller
     $id = $request->getBody()['Pr_id'];
     $product = Products::findOneProduct($id);
     $categories = Categories::all();
-
     return $this->view('admin/updatepr', ['products' => $product,'categories' => $categories]);
   }
 
@@ -41,7 +40,7 @@ class ProductController extends Controller
   }
 public function createPr(Request $request){
   $data = $request->getBody();
-  $data['Image']  =$_FILES['Image']['name'];
+    $data['Image']  =$_FILES['Image']['name'];
   move_uploaded_fIle($_FILES['Image']['tmp_name'],"uploads/".$_FILES['Image']['name']);
   $product = new Products();
   $product->insert($data);

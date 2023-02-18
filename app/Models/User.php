@@ -35,7 +35,19 @@ class User extends BaseModel{
   
     $stmt->execute($data);
   }
-
+  public static function checkUser($username, $password) {
+    $model = new static;
+    $model->sqlBuilder = "SELECT * FROM $model->tableName WHERE Name = :username AND Password = :password";
+    $stmt = $model->conn->prepare($model->sqlBuilder);
+    $stmt->bindParam(':username', $username);
+    $stmt->bindParam(':password', $password);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_CLASS, get_class($model));
+    if ($result) {
+      return $result[0];
+    }
+    return false;
+}
 }
 
 ?>

@@ -1,7 +1,3 @@
-
-      <!-- ====================================
-          ——— CONTENT WRAPPER
-          ===================================== -->
           <div class="content-wrapper">
         <div class="content">
           <div class="bg-white border rounded">
@@ -53,7 +49,7 @@
                               $t2  ="Sáng";
                               $vl = 2;
                               $vl1 =0;
-                            }elseif($booking->Time==3){
+                            }elseif($booking->Time==2){
                               $t="Tối";
                               $t1 = "Sáng";
                               $t2 ="Trưa";
@@ -77,8 +73,8 @@
                               <?php
                               if($booking->Status==0){
                                 $bk = "Complate";
-                                $bk1  ="Cancel";
-                                $bk2 = "Delayer";
+                                $bk1  ="Delayer";
+                                $bk2 = "Cancel";
                                 $vk1 = 1;
                                 $vk2 = 2;
                               }elseif($booking->Status==1){
@@ -91,7 +87,7 @@
                                 $bk2 = "Complate";
                                 $bk1 = "Delayer";
                                 $bk = "Cancel";
-                                $vk1 =2;
+                                $vk1 =1;
                                 $vk2 = 0;
                               }
                               ?>
@@ -110,21 +106,17 @@
               </div>
             </div>
           </div>
-        </div>
-      
+        </div>  
   <script src="assets/plugins/jquery/jquery.min.js"></script>
   <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/plugins/simplebar/simplebar.min.js"></script>
-
   <script src="assets/plugins/daterangepicker/moment.min.js"></script>
   <script src="assets/plugins/daterangepicker/daterangepicker.js"></script>
   <script src="assets/js/date-range.js"></script>
-
   <script src="assets/js/sleek.js"></script>
   <link href="assets/options/optionswitch.css" rel="stylesheet" />
   <script src="assets/options/optionswitcher.js"></script>
 </body>
-
 </html>
 <?php
 require_once 'footer.php';

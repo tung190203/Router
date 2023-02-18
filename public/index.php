@@ -1,4 +1,5 @@
 <?php
+session_start();
 const ROOT_PATH = "/Assigment/public/";
 
 use App\Controllers\BookingController;
@@ -8,24 +9,30 @@ use App\Controllers\ProductController;
 use App\Controllers\TableController;
 use App\Controllers\UserController;
 use App\Router;
+
 require_once __DIR__ . "/../vendor/autoload.php";
 $router= new Router;
 //user
 Router::get('/',[HomeController::class,'index']);
 //trang chú user
 Router::get('/home', [HomeController::class, 'index']);
+Router::post('/home',[HomeController::class,'booking']);
 //login
 Router::get('/login',[UserController::class,'loginpage']);
-//checkuser
-// Router::post('/login',[UserController::class,'check_User']);
+Router::post('/login',[UserController::class,'loginUser']);
+//logout
+Router::get('/logout',[UserController::class,'logoutUser']);
 //register
 Router::get('/register',[UserController::class,'registers']);
+Router::post('/register',[UserController::class,'register']);
 //forgot
 Router::get('/forgot',[UserController::class,'forgot']);
+
 //home-admin
 Router::get('/home-admin',[BookingController::class,'listBooking']);
 Router::get('/update-admin',[BookingController::class,'updateBook']);
 Router::post('/update-admin',[BookingController::class,'updateBk']);
+Router::get('/delete-admin',[BookingController::class,'deleteBk']);
 //table-user
 Router::get('/user-admin',[UserController::class,'listUser']);
 Router::post('/create-user',[UserController::class,'addUser']);

@@ -22,5 +22,11 @@ class BookingController extends Controller{
         $book->updateBooking($data['Booking_id'],$data);
         header('Location:'.ROOT_PATH.'home-admin');
     }
+    public function deleteBk(Request $request){
+        $id  =$request->getBody()['Booking_id'];
+        $booking = new Booking();
+        $booking->deleteBooking($id);
+        header('Location:'.ROOT_PATH.'home-admin');
+    }
 }
 ?>

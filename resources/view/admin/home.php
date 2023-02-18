@@ -13,7 +13,6 @@
                   <th >Booking ID</th>
                   <th>Table ID</th> 
                   <th>User Booking</th>
-                  
                   <th class="d-none d-lg-table-cell">Guests</th>
                   <th class="d-none d-lg-table-cell">Time</th>
                   <th class="d-none d-lg-table-cell">Notes</th>
@@ -69,15 +68,16 @@
                           <a href="<?=ROOT_PATH?>update-admin?Booking_id=<?=$book->Booking_id?>">Update</a>
                         </li>
                         <li class="dropdown-item">
-                          <a href="<?=ROOT_PATH?>delete-admin?Booking_id="<?=$book->Booking_id?>>Remove</a>
+                          <a href="<?=ROOT_PATH?>delete-admin?Booking_id=<?=$book->Booking_id?>">Remove</a>
                         </li>
                       </ul>
                     </div>
                   </td>
-                  <?php
-                  endforeach
-                  ?>
+                
                 </tr>
+                <?php
+                  endforeach;
+                  ?>
               </tbody>
             </table>
           </div>
@@ -85,8 +85,8 @@
       </div>
     </div>
   </div>
-  <!-- End Content -->
 </div>
+
 <?php
 require_once 'footer.php';
 ?>
