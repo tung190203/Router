@@ -1,49 +1,7 @@
 <div class="content-wrapper">
   <div class="content">
     <div class="row">
-
-      <div class="col-xl-12">
-        <!-- Top Products -->
-        <div class="card card-default">
-          <div class="card-header justify-content-between mb-4">
-            <h2>Top Products</h2>
-            <div>
-            </div>
-          </div>
-          <?php
-          
-          ?>
-          <div class="card-body py-0">
-            <div class="media d-flex mb-5">
-              <div class="media-image align-self-center mr-3 rounded">
-                <a href="#"><img src="./assets_admin/img/products/p1.jpg" alt="customerimage" /></a>
-              </div>
-              <div class="media-body align-self-center">
-                <a href="#">
-                  <h6 class="mb-3 text-dark font-weight-medium">
-                    Coach Swagger
-                  </h6>
-                </a>
-                <p class="float-md-right">
-                  <span class="text-dark mr-2">20</span>Sales
-                </p>
-                <p class="d-none d-md-block">
-                  Statement belting with double-turnlock hardware adds
-                  “swagger” to a simple.
-                </p>
-                <p class="mb-0">
-                  <del>$300</del>
-                  <span class="text-dark ml-3">$250</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
       <div class="col-12">
-        <!-- Recent Order Table -->
         <div class="card card-table-border-none recent-orders" id="recent-orders">
           <div class="card-header justify-content-between">
             <h2>Table Reservation</h2>
@@ -55,7 +13,7 @@
                   <th >Booking ID</th>
                   <th>Table ID</th> 
                   <th>User Booking</th>
-                  <th>Infor</th>
+                  
                   <th class="d-none d-lg-table-cell">Guests</th>
                   <th class="d-none d-lg-table-cell">Time</th>
                   <th class="d-none d-lg-table-cell">Notes</th>
@@ -65,20 +23,42 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>24541</td>
+                  <?php
+                  foreach($booking as $book):
+                  ?>
+                  <td><?= $book->Booking_id ?></td>
                   <td>
-                    TB-
+                   TB- <?= $book->Table_id ?>
                   </td>
-                  <td class="d-none d-lg-table-cell">User</td>
-                  <td class="d-none d-lg-table-cell">User_infor</td>
-                  <td class="d-none d-lg-table-cell">10</td>
-                  <td class="d-none d-lg-table-cell">Day & Time</td>
-                  <td>Note</td>
+                  <td class="d-none d-lg-table-cell"><?= $book->User_id ?></td>
+                  <td class="d-none d-lg-table-cell"><?= $book->Guests ?></td>
+                  <?php
+                  if($book->Time==0){
+                    $book->Time = "Sáng";
+                  }elseif($book->Time==1){
+                    $book->Time = "Trưa";
+                  }elseif($book->Time ==2){
+                    $book->Time = "Tối";
+                  }
+                  ?>
+                  <td class="d-none d-lg-table-cell"><?= $book->Day ?> <br> <?= $book->Time ?></td>
+                  <td><?=$book->Message?></td>
                   <td>
-                    <!-- if else -->
-                    <span class="badge badge-success">Completed</span>
-                    <!-- <span class="badge badge-warning">Delayer</span>
-                    <span class="badge badge-danger">Cancel</span> -->
+                    <?php
+                    if($book->Status==0){
+                      ?>
+                      <span class="badge badge-success">Completed</span>
+                      <?php
+                    }elseif($book->Status==1){
+                      ?>
+                      <span class="badge badge-warning">Delayer</span>
+                      <?php
+                    }elseif($book->Status==2){
+                      ?>
+                      <span class="badge badge-danger">Cancel</span> 
+                      <?php
+                    }
+                    ?>
                   </td>
                   <td class="text-right">
                     <div class="dropdown show d-inline-block widget-dropdown">
@@ -86,14 +66,17 @@
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static"></a>
                       <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-recent-order1">
                         <li class="dropdown-item">
-                          <a href="index.php?act=update&id=">Update</a>
+                          <a href="<?=ROOT_PATH?>update-admin?Booking_id=<?=$book->Booking_id?>">Update</a>
                         </li>
                         <li class="dropdown-item">
-                          <a href="index.php?act=delete&id=">Remove</a>
+                          <a href="<?=ROOT_PATH?>delete-admin?Booking_id="<?=$book->Booking_id?>>Remove</a>
                         </li>
                       </ul>
                     </div>
                   </td>
+                  <?php
+                  endforeach
+                  ?>
                 </tr>
               </tbody>
             </table>
@@ -104,5 +87,8 @@
   </div>
   <!-- End Content -->
 </div>
+<?php
+require_once 'footer.php';
+?>
 <!-- End Content Wrapper -->
 <!-- Footer -->

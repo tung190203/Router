@@ -14,36 +14,38 @@ class ProductController extends Controller
     $categories = Categories::all();
     $this->view('admin/product', ['products' => $products, 'categories' => $categories]);
   }
-  // public function addProduct(Request $request){
-// $product = $request->getBody();
-// $product['image'] = $_FILES['image']['name'];
-//     move_uploaded_file($_FILES['image']['tmp_name'], "upload/" .$_FILES['image']['name']);
-// $pr = new Products();
-// $pr->insert($product);
-// header('Location:/Assigment/public/product-admin');
-//     }
   public function deleteProduct(Request $request)
   {
     $id = $request->getBody()['Pr_id'];
     $pr = new Products();
     $pr->deletePr($id);
-    header('Location:/Assigment/public/product-admin');
+    header('Location:'.ROOT_PATH.'product-admin');
   }
+  //update
   public function updatepro(Request $request)
   {
     $this->view('admin/header');
     $id = $request->getBody()['Pr_id'];
     $product = Products::findOneProduct($id);
-    $ct = Categories::all();
-    return $this->view('admin/updatepr', ['products' => $product,'categories' => $ct]);
+    $categories = Categories::all();
+
+    return $this->view('admin/updatepr', ['products' => $product,'categories' => $categories]);
   }
+
   public function updateProduct(Request $request)
   {
     $data = $request->getBody();
     $product = new Products();
     $product->updatePr($data['Pr_id'], $data);
-    header('Location:/Assigment/public/product-admin');
+    header('Location:'.ROOT_PATH.'product-admin');
   }
-
+public function createPr(Request $request){
+  $data = $request->getBody();
+  $data['Image']  =$_FILES['Image']['name'];
+  move_uploaded_fIle($_FILES['Image']['tmp_name'],"uploads/".$_FILES['Image']['name']);
+  $product = new Products();
+  $product->insert($data);
+  header('Location:'.ROOT_PATH.'product-admin');
+}
 }
 ?>

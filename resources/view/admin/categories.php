@@ -59,10 +59,10 @@
                                             <ul class="dropdown-menu dropdown-menu-right"
                                                 aria-labelledby="dropdown-recent-order1">
                                                 <li class="dropdown-item">
-                                                    <a href="<?=ROOT_PATH?>update-categories&User_id=<?php echo $value->Cate_id?>">Update</a>
+                                                    <a href="<?=ROOT_PATH?>update-categories?Cate_id=<?php echo $value->Cate_id?>">Update</a>
                                                 </li>
                                                 <li class="dropdown-item">
-                                                    <a href="<?=ROOT_PATH?>delete-categories&User_id=<?php echo $value->Cate_id ?>">Remove</a>
+                                                    <a href="<?=ROOT_PATH?>delete-categories?Cate_id=<?php echo $value->Cate_id ?>">Remove</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -84,7 +84,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalFormTitle">
-                      Add Product
+                      Add Categories
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
@@ -92,39 +92,20 @@
                   </div>
 
                   <div class="modal-body">
-                    <form action="<?=ROOT_PATH?>product-admin" method="POST">
-					<input type="hidden" name="Pr_id" value="<?= $values->Pr_id ?>" >
+                    <form action="<?=ROOT_PATH?>create-categories" method="POST">
+
 					<div class="form-group">
-                        <label for="exampleInputEmail1">Product Name</label>
+                        <label for="exampleInputEmail1">Categories Name</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" "
-                        placeholder=" Enter Product Name" name="Name_pr" />
+                        placeholder=" Enter categories Name" name="Cate_name" />
                       </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Image</label>
-                        <input type="file" class="form-control" id="exampleInputEmail1"  "
-                        placeholder=" Enter image" name="Image" />
-                      </div>
+                
                       <div class="form-group">
                         <label for="exampleInputEmail1">Description</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" "
                         placeholder=" Enter Description" name="Description" />
-                      </div>
-					  <div class="form-group">
-					  <label for="">Categories</label>
-                      <select name="" id="" class="form-select">
-					  <?php  foreach($categories as $value): ?>
-							<option value="<?= $value->Cate_id ?>"><?= $value->Cate_name ?></option>
-							<?php   endforeach ?>
-					  </select>
-                      </div>
-					  
-                      <div class="form-group">
-                        <label for="exampleInputPassword1">Price</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Price" name="Price" />
-                      </div>
-					  
-					  
-                      <input type="submit" value="Add" class="btn btn-primary " id="btnsm" >
+                      </div> 
+                      <input type="submit" value="Add categories" class="btn btn-primary " >
                     </form>
                   </div>
                 </div>

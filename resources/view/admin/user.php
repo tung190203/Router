@@ -25,7 +25,7 @@
         <div class="card card-table-border-none recent-orders" id="recent-orders">
           <div class="card-header justify-content-between">
             <h2>Users-data-table</h2>
-            <a href=""><input type="button" value="Add" class="btn btn-info"></a>
+            <input type="button" value="Add" class="btn btn-info" data-toggle="modal" data-target="#exampleModalForm">
           </div>
 
           <div class="card-body pt-0 pb-5">
@@ -101,4 +101,50 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="exampleModalForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalFormTitle" aria-hidden="true">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalFormTitle">
+												Add User
+											</h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body">
+											<form action="<?= ROOT_PATH ?>create-user" method="POST" enctype="multipart/form-data" >
+												<div class="form-group">
+													<label for="exampleInputEmail1"> Name</label>
+													<input type="text" class="form-control" id="exampleInputEmail1" "
+                        						placeholder=" Enter  Name" name="Name" />
+												</div>
+												<div class="form-group">
+													<label for="exampleInputEmail1">Email</label>
+													<input type="Email" class="form-control" id="exampleInputEmail1" "
+                        						 placeholder = "Enter Email"  name="Email" />
+												</div>
+												<div class="form-group">
+													<label for="exampleInputEmail1">Address</label>
+													<input type="text" class="form-control" id="exampleInputEmail1" "
+                        						placeholder=" Enter Address" name="Address" />
+												</div>
+                        	<div class="form-group">
+													<label for="exampleInputEmail1">Phone</label>
+													<input type="text" class="form-control" id="exampleInputEmail1" "
+                        						placeholder=" Enter Phone Number" name="Phone" />
+												</div>
+                        	<div class="form-group">
+													<label for="exampleInputEmail1">Password</label>
+													<input type="password" class="form-control" id="exampleInputEmail1" "
+                        						placeholder=" Enter Password" name="Password"/>
+												</div>
+												<input type="submit" value="Add" class="btn btn-primary ">
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						
 <?php  require_once 'footer.php'; ?>

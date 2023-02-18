@@ -47,12 +47,17 @@ public function deleteUser(Request $request){
     $id = $request->getBody()['User_id'];
     $user = new User();
     $user->deleteUser($id);
-    header('Location:/Assigment/public/user-admin');
+    header('Location:'.ROOT_PATH.'user-admin');
 }
 public function userProfile(){
     $this->view('admin/header');
     $this->view('admin/user-profile');
     $this->view('admin/footer');
 }
-
+public function addUser(Request $request){
+$data = $request->getBody();
+$users = new User();
+$users->insert($data);
+header('Location:'.ROOT_PATH.'user-admin');
+}
 }

@@ -13,7 +13,7 @@
             </div>
             <div class="col-lg-4">
                 <div class="logo">
-                    <a href="index.php?act=home"><img src="assets/images/white-logo.png" alt=""></a>
+                    <a href="<?=ROOT_PATH?>home"><img src="assets/images/white-logo.png" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-4 col-xs-12">

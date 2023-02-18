@@ -52,7 +52,7 @@
 											<td class="details-control"></td>
 											<td><?= $values->Pr_id ?></td>
 											<td><?= $values->Name_pr ?></td>
-											<td><?= $values->Image ?></td>
+											<td><img src="/uploads/<?= $values->Image ?>" alt="" width="40px"></td>
 											<td><?= $values->Description ?></td>
 											<td><?= $values->Price ?></td>
 											<td>
@@ -63,6 +63,7 @@
 									<?php endforeach ?>
 								</tbody>
 							</table>
+
 							<div class="modal fade" id="exampleModalForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalFormTitle" aria-hidden="true">
 								<div class="modal-dialog" role="document">
 									<div class="modal-content">
@@ -76,8 +77,7 @@
 										</div>
 
 										<div class="modal-body">
-											<form action="<?= ROOT_PATH ?>product-admin" method="POST">
-												<input type="hidden" name="Pr_id" value="<?= $values->Pr_id ?>">
+											<form action="<?= ROOT_PATH ?>create-product" method="POST" enctype="multipart/form-data" >
 												<div class="form-group">
 													<label for="exampleInputEmail1">Product Name</label>
 													<input type="text" class="form-control" id="exampleInputEmail1" "
@@ -86,7 +86,7 @@
 												<div class="form-group">
 													<label for="exampleInputEmail1">Image</label>
 													<input type="file" class="form-control" id="exampleInputEmail1" "
-                        						placeholder=" Enter image" name="Image" />
+                        						 name="Image" />
 												</div>
 												<div class="form-group">
 													<label for="exampleInputEmail1">Description</label>
@@ -95,7 +95,7 @@
 												</div>
 												<div class="form-group">
 													<label for="">Categories</label>
-													<select name="" id="" class="form-select">
+													<select name="Cate_id" id="" class="form-select">
 														<?php foreach ($categories as $value) : ?>
 															<option value="<?= $value->Cate_id ?>"><?= $value->Cate_name ?></option>
 														<?php endforeach ?>
@@ -114,6 +114,7 @@
 									</div>
 								</div>
 							</div>
+						
 						</div>
 					</div>
 				</div>
